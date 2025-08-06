@@ -56,16 +56,21 @@ export async function getStaticProps({ params: { tag }, locale }) {
  */
 function getTagNames(tags) {
   const tagNames = []
-  tags.forEach(tag => {
-    tagNames.push(tag.name)
-  })
+  if (Array.isArray(tags)) {
+    tags.forEach(tag => {
+      if (tag && tag.name) {
+        tagNames.push(tag.name)
+      }
+    })
+  }
   return tagNames
 }
 
 export async function getStaticPaths() {
   const from = 'tag-static-path'
   const { tagOptions } = await getGlobalData({ from })
-  const tagNames = getTagNames(tagOptions)
+  const validTagOptions = tagOptions || []
+  const tagNames = getTagNames(validTagOptions)
 
   return {
     paths: Object.keys(tagNames).map(index => ({
