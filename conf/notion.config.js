@@ -34,5 +34,9 @@ module.exports = {
     ext: process.env.NEXT_PUBLIC_NOTION_PROPERTY_EXT || 'ext' // 扩展字段，存放json-string，用于复杂业务
   },
   NOTION_ACTIVE_USER: process.env.NOTION_ACTIVE_USER || '',
-  NOTION_TOKEN_V2: process.env.NOTION_TOKEN_V2 || '' // Useful if you prefer not to make your database public
+  NOTION_TOKEN_V2: process.env.NOTION_TOKEN_V2 || '', // Useful if you prefer not to make your database public
+  
+  // 官方API配置
+  NOTION_INTEGRATION_TOKEN: process.env.NOTION_INTEGRATION_TOKEN || '', // 官方API集成Token
+  NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID || '', // 数据库ID
 }
