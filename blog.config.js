@@ -6,6 +6,15 @@ const BLOG = {
     process.env.NOTION_PAGE_ID ||
     '246494daeda880af9603c6a0e1e1213d',
   
+  // 数据库ID，通常与NOTION_PAGE_ID相同
+  NOTION_DATABASE_ID:
+    process.env.NOTION_DATABASE_ID ||
+    process.env.NOTION_PAGE_ID ||
+    '246494da-eda8-80af-9603-c6a0e1e1213d',
+  
+  // 官方API Token
+  NOTION_INTEGRATION_TOKEN: process.env.NOTION_INTEGRATION_TOKEN || '',
+  
   // 官方API支持：当设置了NOTION_INTEGRATION_TOKEN时，使用官方API
   USE_OFFICIAL_API: process.env.NOTION_INTEGRATION_TOKEN ? true : false,
   THEME: process.env.NEXT_PUBLIC_THEME || 'simple', // 当前主题，在themes文件夹下可找到所有支持的主题；主题名称就是文件夹名，例如 example,fukasawa,gitbook,heo,hexo,landing,matery,medium,next,nobelium,plog,simple

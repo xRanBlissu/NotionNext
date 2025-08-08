@@ -10,6 +10,11 @@ const filterDOMProps = props => {
 const SmartLink = ({ href, children, ...rest }) => {
   const LINK = siteConfig('LINK')
 
+  // 如果 href 为 undefined 或 null，返回普通的 span 元素
+  if (!href) {
+    return <span {...filterDOMProps(rest)}>{children}</span>
+  }
+
   // 获取 URL 字符串用于判断是否是外链
   let urlString = ''
 
